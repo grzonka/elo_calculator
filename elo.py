@@ -1,5 +1,7 @@
-players = []
 k_value = 32
+starting_elo = 1200
+
+players = []
 
 
 def read_players():
@@ -8,7 +10,7 @@ def read_players():
         players.append([line.replace("\n", "")])
         line = f.readline()
     for player in players:
-        player.append(1200)
+        player.append(starting_elo)
     line = f.readline()
     while line != '':
         calc_new_elo(line.split(", ")[0], line.split(", ")[1].replace("\n", ""))
@@ -26,7 +28,7 @@ def calc_new_elo(winner, looser):
     """
     :param winner: string
     :param looser: string
-    :return: new winner elo, new looser elo
+    :return: nothing, changes winner and looser elo
     """
     for x in range(len(players)):
         if winner == players[x][0]:
@@ -42,6 +44,7 @@ def calc_new_elo(winner, looser):
 
     players[p1_index][1] = p1_elo
     players[p2_index][1] = p2_elo
+
 
 def expected_score(rating1, rating2):
     ea = 1/(1+10**((rating2-rating1)/400))
