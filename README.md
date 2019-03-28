@@ -22,6 +22,8 @@ etc...
 
 ```
 
+The starting elo for each player is 1200. The k-value determining the maximum elo gains is set to 32. Both numbers can be edited at the beginning of elo.py
+
 ## Running the script
 
 In the directory where 'elo.py' and 'matches.txt' are located run:
