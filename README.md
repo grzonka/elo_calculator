@@ -1,10 +1,12 @@
 # elo_calculator
 
-This calculator can be used to calculate the elo of players based on previously documented games
+This calculator can be used to calculate the elo of players based on previously documented games.
 
 ### Prerequisites
 
-Python 3 installed on your system (Version 3.7.2 was used at the time of writing)
+Python 3 installed on your system (Version 3.7.2 was used at the time of writing).
+matplotlib needs to be installed in order to show a graph of elo progression over time.
+You can still use the script for command line output only which does not neeed matplotlib installed. Just comment out the very first and last lines in the script if you do not want a graph to be generated.
 
 ## Getting Started
 
