@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 # in case you do not need the feature or do not have
-# matlibplot installed, comment out the import and the
+# matplotlib installed, comment out the import and the
 # very last line 'print_graph()' to get console output only
 
 k_value = 32
