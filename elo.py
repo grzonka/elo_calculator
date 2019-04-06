@@ -18,13 +18,13 @@ def init_players():
     for player in players:
         player.append(starting_elo)
         rating_history.append([starting_elo])
-    print(rating_history)
 
 
 def read_scores():
     line = f.readline()
     while line != '':
-        calc_new_elo(line.split(", ")[0], line.split(", ")[1].replace("\n", ""))
+        line_split = line.replace("\n", "").split(", ")
+        calc_new_elo(line_split[0], line_split[1])
         line = f.readline()
 
         # add updated ratings to rating_history
