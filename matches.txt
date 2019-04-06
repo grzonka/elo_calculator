@@ -3,5 +3,5 @@ Susan
 David
 Richard
 
-Marry, David  
+Marry, David
 Richard, Susan

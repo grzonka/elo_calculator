@@ -47,7 +47,6 @@ def calc_new_elo(winner, looser):
     :return: nothing, changes winner and looser elo
     """
     for x in range(len(players)):
-
         if winner == players[x][0]:
             p1_elo = players[x][1]
             p1_index = x
