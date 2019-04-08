@@ -75,8 +75,8 @@ def print_graph():
     plt.ylabel("Elo")
     plt.title("Elo progress")
     # uncomment one or both of the following lines to determine how the graph is shown at runtime
-    # plt.show()                            # pop-ups the graph
-    plt.savefig("graph_of_elo.png")         # updates the graph in main directory
+    # plt.show()                               # pop-ups the graph
+    plt.savefig("graph_of_elo.png", dpi=300)    # updates the graph in main directory
 
 
 if __name__ == '__main__':
