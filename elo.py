@@ -74,7 +74,9 @@ def print_graph():
     plt.xlabel("# of games")
     plt.ylabel("Elo")
     plt.title("Elo progress")
-    plt.show()
+    # uncomment one or both of the following lines to determine how the graph is shown at runtime
+    # plt.show()                            # pop-ups the graph
+    plt.savefig("graph_of_elo.png")         # updates the graph in main directory
 
 
 if __name__ == '__main__':
