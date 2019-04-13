@@ -78,19 +78,24 @@ def expected_score(rating1, rating2):
 
 
 def print_graph():
+    # print(players)
+    # print(len(players))
     for x in range(len(players)):
         plt.plot(rating_history[x], label=players[x][0])
+        # print("PRINTING: " +  str(x))
     plt.legend()
     plt.xlabel("# of games")
     plt.ylabel("Elo")
     plt.title("Elo progress")
     # uncomment one or both of the following lines to determine how the graph is shown at runtime
-    # plt.show()                                # pop-ups the graph
+    # plt.show(dpi=300)                                # pop-ups the graph
     plt.savefig("graph_of_elo.png", dpi=300)    # saves/updates the graph in main directory
+    # clearing matplotlib cache which is not done automaticly.
+    plt.clf()
 
 
 def main():
-    print("im in main now")
+    # print("im in main now")
     init_players()
     read_scores()
     print_ratings()

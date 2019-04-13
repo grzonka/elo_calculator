@@ -34,6 +34,7 @@ def add_match():
             f.write(match_result)
             f.close()
             print("Match successfully added!")
+            print(" ")
         else:
             print("That was not a valid input. \n"
                   "Do you want to try again? (y/n)")
