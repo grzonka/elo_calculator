@@ -13,6 +13,9 @@ starting_elo = 1200
 players = []
 rating_history = []
 
+# both players and rating_history are not saved on runtime.
+# since elo is constantly running saving data ther would be possible.
+
 
 def init_players():
     line = f.readline()
@@ -88,21 +91,32 @@ def print_graph():
     plt.ylabel("Elo")
     plt.title("Elo progress")
     # uncomment one or both of the following lines to determine how the graph is shown at runtime
-    # plt.show(dpi=300)                                # pop-ups the graph
+    # plt.show(dpi=300)                         # pop-ups the graph
     plt.savefig("graph_of_elo.png", dpi=300)    # saves/updates the graph in main directory
     # clearing matplotlib cache which is not done automaticly.
     plt.clf()
 
 
-def main():
-    # print("im in main now")
+def do_all():
     init_players()
     read_scores()
     print_ratings()
     print_graph()
+    #get_players()
 
-# not needed anymore since this is no longer the main class.
-# if __name__ == '__main__':
-#     main()
+
+def get_winrate(player1_id, player2_id):
+    init_players()
+    read_scores()
+    p1_elo = players[player1_id][1]
+    p1_name= players[player1_id][0]
+    p2_elo = players[player2_id][1]
+    p2_name = players[player2_id][0]
+    p1_vs_p2_wr = expected_score(p1_elo,p2_elo)
+    nice_result = round(p1_vs_p2_wr * 100, 1)
+
+    print(p1_name + " has a expected winrate of " + str(nice_result) + "% against " + p2_name
+          + ".\n")
+
 
 

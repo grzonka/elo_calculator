@@ -1,3 +1,6 @@
+import calculations as calc
+
+
 def get_players():
     with open("matches.txt", "r") as f:
         player_names = []
@@ -42,6 +45,19 @@ def add_match():
                 quit()
             else:
                 add_match()
+
+
+def get_expected_winrate():
+    player_names = get_players()
+    print("Please enter the ID of the winning player:")
+    winner_input = get_user_id_input(0, len(player_names) - 1)
+    print("Please enter the ID of the loosing player:")
+    looser_input = get_user_id_input(0, len(player_names) - 1)
+    if winner_input != -1 and looser_input != -1 and winner_input != looser_input:
+        # print("P1 is: " + str(winner_input) + ", P2 is: " + str(looser_input))
+        calc.get_winrate(winner_input, looser_input)
+
+
 
 
 
