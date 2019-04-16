@@ -49,9 +49,9 @@ def add_match():
 
 def get_expected_winrate():
     player_names = get_players()
-    print("Please enter the ID of the winning player:")
+    print("Please enter the ID of the first player:")
     winner_input = get_user_id_input(0, len(player_names) - 1)
-    print("Please enter the ID of the loosing player:")
+    print("Please enter the ID of the second player:")
     looser_input = get_user_id_input(0, len(player_names) - 1)
     if winner_input != -1 and looser_input != -1 and winner_input != looser_input:
         # print("P1 is: " + str(winner_input) + ", P2 is: " + str(looser_input))
