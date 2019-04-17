@@ -13,7 +13,6 @@ Currently implemented features are:
 
 Python 3 installed on your system (Version 3.7.2 was used at the time of writing).
 matplotlib needs to be installed in order to show a graph of elo progression over time. This is usually done via 'pip install matplotlib' in the terminal but can vary based on python install.
-You can still use the script for command line output only which does not neeed matplotlib installed. Just comment out the very first and last lines in the 'calculations.py' script if you do not want a graph to be generated.
 
 ## Getting Started
 
