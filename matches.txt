@@ -1,10 +1,4 @@
-Marry, David
-Richard, Susan
+Marry, Susan
+Richard, David
 David, Marry
-Marry, Susan
-Richard, Marry
-Richard, Marry
-Marry, Susan
-Marry, Susan
-Marry, Susan
-Richard, Marry
+Susan, Marry

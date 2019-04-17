@@ -1,12 +1,9 @@
-# import calculations as calc
-# import importlib
-# import player_management as pm
 import matplotlib.pyplot as plt
 
 k_value = 32
 starting_elo = 1200
-players_initialized = False
 
+players_initialized = False
 players = []
 rating_history = []
 
@@ -16,15 +13,14 @@ p = open('players.txt', 'r')
 
 def init_players():
     line = p.readline()
-    while line != '\n' and line !='':
+    while line != '\n' and line != '':
         # each player is given a own list to save his information
         players.append([line.replace("\n", "")])
         line = p.readline()
-    # print(players)
     for player in players:
-        # the second entry of each individual players list represents his rating
+        # second entry represents players rating
         player.append(starting_elo)
-        # furthermore elo is saved to an all time list in order to generate a graph
+        # elo is saved to an all time list in order to generate a graph
         rating_history.append([starting_elo])
     global players_initialized
     players_initialized = True
@@ -32,12 +28,10 @@ def init_players():
 
 def read_scores():
     line = f.readline()
-    # TODO: improve handling of empty lines at the end of file.
-    while line != '':
+    while line != '' and line != '\n':
         line_split = line.replace("\n", "").split(", ")
         calc_new_elo(line_split[0], line_split[1])
         line = f.readline()
-
         # adding updated ratings to rating_history
         for x in range(len(rating_history)):
             rating_history[x].append(players[x][1])
@@ -80,19 +74,16 @@ def expected_score(rating1, rating2):
 
 
 def print_graph():
-    # print(players)
-    # print(len(players))
     for x in range(len(players)):
         plt.plot(rating_history[x], label=players[x][0])
-        # print("PRINTING: " +  str(x))
     plt.legend()
     plt.xlabel("# of games")
     plt.ylabel("Elo")
     plt.title("Elo progress")
-    # uncomment one or both of the following lines to determine how the graph is shown at runtime
-    # plt.show(dpi=300)                         # pop-ups the graph
+    # next two lines determine how graph is presented
+    # plt.show(dpi=300)                          # pop-ups the graph
     plt.savefig("graph_of_elo.png", dpi=300)    # saves/updates the graph in main directory
-    # clearing matplotlib cache which is not done automaticly.
+    # clearing matplotlib cache which is not done automatically.
     plt.clf()
 
 
@@ -102,12 +93,9 @@ def do_all():
     read_scores()
     print_ratings()
     print_graph()
-    #get_players()
 
 
 def get_win_rate(player1_id, player2_id):
-    #if not players_initialized:
-    #     init_players()
     read_scores()
     p1_elo = players[player1_id][1]
     p1_name= players[player1_id][0]
@@ -132,9 +120,8 @@ def add_match():
     with open("matches.txt", "a") as f:
         match_result = ""
         player_names = players
-        # print(player_names)
         for x in range(len(player_names)):
-                print("ID: " + str(x) + ") " + player_names[x][0])
+            print("ID: " + str(x) + ") " + player_names[x][0])
         print("Please enter the ID of the winning player:")
         winner_input = get_user_id_input(0, len(player_names) - 1)
         print("Please enter the ID of the loosing player:")
@@ -163,16 +150,14 @@ def get_expected_win_rate():
     for x in range(len(player_names)):
         print("ID: " + str(x) + ") " + player_names[x][0])
     print("Please enter the ID of the first player:")
-    winner_input = get_user_id_input(0, len(player_names) - 1)
+    first_input = get_user_id_input(0, len(player_names) - 1)
     print("Please enter the ID of the second player:")
-    looser_input = get_user_id_input(0, len(player_names) - 1)
-    if winner_input != -1 and looser_input != -1 and winner_input != looser_input:
-        # print("P1 is: " + str(winner_input) + ", P2 is: " + str(looser_input))
-        get_win_rate(winner_input, looser_input)
+    second_input = get_user_id_input(0, len(player_names) - 1)
+    if first_input != -1 and second_input != -1 and first_input != second_input:
+        get_win_rate(first_input, second_input)
 
 
 def show_menu():
-    # importlib.reload(calc)
     print("Use the number for your desired option:\n"
           "1) Check players ratings.\n"
           "2) Add match results.\n"
@@ -181,7 +166,6 @@ def show_menu():
     user_input = input()
     if user_input == "1":
         do_all()
-        # f.seek(0)
         show_menu()
     elif user_input == "2":
         add_match()
@@ -191,11 +175,6 @@ def show_menu():
         show_menu()
     else:
         quit()
-
-
-def set_saved_players(input_player_list):
-    global saved_players
-    saved_players = input_player_list
 
 
 if __name__ == '__main__':
