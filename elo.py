@@ -104,7 +104,7 @@ def get_win_rate(player1_id, player2_id):
     p1_vs_p2_wr = expected_score(p1_elo,p2_elo)
     nice_result = round(p1_vs_p2_wr * 100, 1)
 
-    print(p1_name + " has a expected win_rate of " + str(nice_result) + "% against " + p2_name
+    print(p1_name + " has a expected winrate of " + str(nice_result) + "% against " + p2_name
           + ".\n")
 
 
