@@ -1,6 +1,13 @@
 # elo_calculator
 
-This calculator can be used to calculate the elo of players based on previously documented games.
+This command line tool can manage 1vs1 based game data for as many players as needed based on an Elo-system.
+Currently implemented features are:
+```
+- display player ratings in terminal
+- add game results
+- plot player ratings over time
+- calculate expected winrate for a match between 2 players
+```
 
 ### Prerequisites
 
@@ -10,19 +17,16 @@ You can still use the script for command line output only which does not neeed m
 
 ## Getting Started
 
-cloning the project into a desired location or downloade the files as zip and extract them. 
-All competing players need to be added at the top of 'matches.txt'. Seperating all players from the following matches via a blank line and manually adding the very first result in the format <winning_player>, <loosing_player> might still be needed in order for the script to properly run. (All consequent match results can simply be added via the command line when running the script. Note the whitespace between the comma and the loosing player. See example below: 
+Cloning the project into a desired location or download the files as zip and extract them. 
+All competing players need to be added at the top of 'players.txt' with each player in a separate line. 
+See example below: 
 
+###### players.txt
 ```
 Marry
 Susan
 David
 Richard
-
-Marry, David
-Richard, Susan
-etc...
-
 ```
 
 The starting elo for each player is 1200. The k-value determining the maximum elo gains is set to 32. Both numbers can be edited at the beginning of elo.py
@@ -30,7 +34,7 @@ The starting elo for each player is 1200. The k-value determining the maximum el
 
 ## Running the script
 
-If you have 'calculations.py', 'player_management.py', 'elo.py' and 'matches.txt' all in the same folder use the script by running:
+If you have 'players.txt', 'matches.txt' and 'elo.py' all in the same folder use the script by running
 
 ```
 python elo.py
